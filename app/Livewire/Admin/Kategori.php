@@ -203,18 +203,20 @@ class Kategori extends Component
                 $editedcategory->update($category);
             }
 
+            $this->alert('success', 'Pokja Berhasil Di Edit', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'confirmButtonText' => 'Ok',
+                'timerProgressBar' => true,
+               ]);
+
         }
         
         $this->editedcategoryIndex = Null;
-        $this->alert('success', 'Pokja Berhasil Di Edit', [
-            'position' => 'center',
-            'timer' => 3000,
-            'toast' => false,
-            'showConfirmButton' => true,
-            'onConfirmed' => '',
-            'confirmButtonText' => 'Ok',
-            'timerProgressBar' => true,
-           ]);
+       
     }
 
 

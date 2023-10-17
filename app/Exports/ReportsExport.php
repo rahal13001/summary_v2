@@ -88,7 +88,7 @@ class ReportsExport implements FromQuery, WithMapping, WithHeadings, WithStyles,
             $query->dasar_pelaksanaan,
             $query->why,
             $query->where,
-            $query->penyelenggara,
+            // $query->penyelenggara,
             $query->who,
             $query->total_peserta,
             $query->gender_wanita,
@@ -117,11 +117,11 @@ class ReportsExport implements FromQuery, WithMapping, WithHeadings, WithStyles,
             'Dasar Pelaksanaan', //F
             'Why', //G
             'Where', //H
-            'Penyelenggara', //I
+            // 'Penyelenggara', //I
             'Who', //J
             'Total Peserta', //K
             'Jumlah Wanita Yang Hadir', //L
-            'Kategori', //M
+            'Kelompok Kerja', //M
             'IKU', //N
             // 'Sub Kategori',
             'How', //O
@@ -155,7 +155,7 @@ class ReportsExport implements FromQuery, WithMapping, WithHeadings, WithStyles,
             'J' => 20,
             'K' => 20,
             'L' => 20,
-            'M' => 20,
+            'M' => 60,
             'N' => 60,
             'O' => 60,
             'P' => 60,
@@ -163,7 +163,6 @@ class ReportsExport implements FromQuery, WithMapping, WithHeadings, WithStyles,
             'R' => 60,
             'S' => 60,
             'T' => 60,
-            'U' => 60,
         ];
     }
 

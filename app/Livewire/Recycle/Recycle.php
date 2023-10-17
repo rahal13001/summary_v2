@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Report;
 use App\Models\Report_User;
 use App\Models\Subcategory;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Models\Subcategory_Report;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -42,13 +43,15 @@ class Recycle extends Component
     }
 
     public function notif(){
-        return $this->dispatchBrowserEvent('swal:modal', [
-                'icon' => 'success',
-                'title' => 'Tambah Data Berhasil',
-                'text' => '',
-                'timer' => 5000,
-                'timerProgressBar' => true,
-        ]);
+        $this->alert('success', 'Tambah Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
+            'timerProgressBar' => true,
+           ]);
     }
 
     public function akhir(){
@@ -152,14 +155,17 @@ class Recycle extends Component
         $this->checked = [];
         $this->selectAll=false;
         $this->selectPage=false;
-        
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+
+        $this->alert('success', 'Data Berhasil Terhapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
+        
     }
 
     public function restoreDatas(){
@@ -168,14 +174,16 @@ class Recycle extends Component
         $this->checked = [];
         $this->selectAll=false;
         $this->selectPage=false;
-        
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Di Kembalikan',
-            'text' => '',
-            'timer' => 5000,
+
+        $this->alert('success', 'Data Berhasil Dikembalikan', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
 
@@ -203,13 +211,15 @@ class Recycle extends Component
 
         $this->checked = array_diff($this->checked, [$data_id]);
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Data Berhasil Dihapus', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function restoreSatuData($data_id){
@@ -218,13 +228,15 @@ class Recycle extends Component
 
         $this->checked = array_diff($this->checked, [$data_id]);
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Dikembalikan',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Tambah Berhasil Dikembalikan', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function eksporexcel(){

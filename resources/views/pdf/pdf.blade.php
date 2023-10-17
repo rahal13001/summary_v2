@@ -8,15 +8,14 @@
     body {
         font-family: Arial;
       }
-      table {
+      .tabledata {
         border-collapse: collapse;
+        border: none;
         /* width: 100%; */
         padding: 5px;
       }
       td, th {
-        border: none;
         padding: 8px;
-        padding-left: 15px;
         text-align: left;
       }
       .header {
@@ -34,6 +33,7 @@
       
       .report-content {
           padding: 20px 0;
+          padding-left: 10px;
           text-align: justify;
           text-justify: inter-word;
           
@@ -73,7 +73,7 @@
     </div>
     <br>
     <!-- Tabel Informasi -->
-    <table>
+    <table class="tabledata">
       <!-- Nomor Surat Tugas -->
       <tr>
         <td>Nomor Surat Tugas</td>

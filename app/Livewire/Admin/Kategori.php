@@ -42,6 +42,13 @@ class Kategori extends Component
     #[Rule('unique:categories,nama,except,id', message: 'Nama Pokja Sudah Digunakan')]
     public $nama;
 
+    #[Rule('required', message: 'Status Wajib di Isi')]
+    public $status;
+
+    #[Rule('required', message: 'Status Wajib di Isi')]
+    #[Rule('numeric', message: 'Nomor Harus Berisi Angka')]
+    public $nomor;
+
     public function generateSlug()
     {
         $this->slug = SlugService::createSlug(Category::class, 'slug', $this->nama);
@@ -56,6 +63,8 @@ class Kategori extends Component
     public function hideForm()
     {
         $this->nama = '';
+        $this->status = '';
+        $this->nomor = '';
         $this->isFormVisible = false;
     }
 
@@ -63,10 +72,14 @@ class Kategori extends Component
     {
         $this->validate();
  
-       $category = Category::create([
-            'nama' => $this->nama,
-            'slug'  => $this->slug
-        ]);
+       $category = new Category;
+            $category->nama = $this->nama;
+            $category->status = $this->status;
+            $category->nomor = $this->nomor;
+            $category->slug = $this->slug;
+            $category->save();
+    
+      
 
         $this->alert('success', 'Tambah Pokja berhasil', [
             'position' => 'center',
@@ -79,6 +92,8 @@ class Kategori extends Component
            ]);
 
         $this->nama = '';
+        $this->status = '';
+        $this->nomor = '';
         $this->dispatch('update_category', $category->id)->self();
     }
 
@@ -178,8 +193,9 @@ class Kategori extends Component
 
 
     public function savecategory($categoryIndex){
-     
+            
         $category = $this->setcategories[$categoryIndex] ?? NULL;
+   
       
         if (!is_null($category)) {
             $editedcategory = Category::where('id', $this->editedcategoryIndex);

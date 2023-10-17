@@ -50,7 +50,7 @@
                   <button type="button" class="btn btn-danger" wire:click="hideForm"> <i class="bi bi-x-lg"></i> Tutup</button>
                 @else
                 <button type="button" class="btn btn-primary" wire:click="showForm"> <i class="bi bi-plus-lg"></i>
-                  Tambah Kategori
+                  Tambah Pokja
                 </button>
                 @endif
             </div>
@@ -60,11 +60,11 @@
         @if ($isFormVisible)
         <div class="container mt-3">
 
-            <h5 class="mb-3" >Tambah Kategori</h5>
+            <h5 class="mb-3" >Tambah Pokja</h5>
                 <div class="row mt-3">
                     <div class="col-sm-12">
-                        <label for="namakategori">Nama Kategori</label>
-                        <input  type="text" wire:model = "nama" class="form-control {{$errors->first('nama') ? "is-invalid" : "" }}" id="namakategori" placeholder="Isikan Nama Kategori...." >
+                        <label for="namakategori">Nama Pokja</label>
+                        <input  type="text" wire:model = "nama" class="form-control {{$errors->first('nama') ? "is-invalid" : "" }}" id="namakategori" placeholder="Isikan Nomor Pokja...." >
                         @error('nama')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -72,6 +72,32 @@
                         @enderror
                     </div>
                 </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <label for="namakategori">Nomor</label>
+                        <input  type="number" wire:model = "nomor" class="form-control {{$errors->first('nomor') ? "is-invalid" : "" }}" id="nomorkategori" placeholder="Isikan Nomor Pokja...." >
+                        @error('nomor')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="statuskategori">Status</label>
+                        <select class="form-select" aria-label="Default select example" wire:model='status' id="statuskategori">
+                            <option selected>Pilih Status</option>
+                            <option value="aktif">Aktif</option>
+                            <option value="tidak aktif">Tidak Aktif</option>
+                          </select>
+                        @error('status')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="text-center mt-3 mb-3">
                     <button type="button" class="btn btn-primary" wire:click="saveData">Save</button>
                 </div>
@@ -98,9 +124,11 @@
                     <thead>
                         <tr>
                         <th><input type="checkbox" wire:model.live="selectPage"></th>
-                          <th class="text-center col-1">No</th>
-                          <th class="text-center col-4" >Kategori</th>
-                          <th class="text-center col-3">Aksi</th>  
+                          <th class="text-center">No</th>
+                          <th class="text-center" >Nama</th>
+                          <th class="text-center" >No Pokja</th>
+                          <th class="text-center" >Status</th>
+                          <th class="text-center">Aksi</th>  
                         </tr>
                       </thead>
                       <tbody>
@@ -110,8 +138,8 @@
                                 <td><input type="checkbox" value="{{ $category->id }}" wire:model.live="checked">
                                     @if ($editedcategoryIndex == $category->id)
                                     @endif</td>
-                                <td class="text-center col-1">{{ $loop->iteration }}</td>
-                                <td class="text-center col-5">
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">
                                     @if ($editedcategoryIndex !== $category->id)
                                     
                                     {{ $category->nama }}
@@ -120,6 +148,48 @@
                                     <input  type="text" wire:model ="setcategories.{{$category->id}}.nama" class="form-control
                                         {{$errors->first('nama') ? "is-invalid" : "" }}" id="nama">                                
                                         @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    @endif
+                                   
+                                    
+                                    
+                                </td>
+
+
+                                <td class="text-center">
+                                    @if ($editedcategoryIndex !== $category->id)
+                                    
+                                    {{ $category->nomor }}
+                                    
+                                    @else
+                                    <input  type="text" wire:model ="setcategories.{{$category->id}}.nomor" class="form-control
+                                        {{$errors->first('nomor') ? "is-invalid" : "" }}" id="nomor">                                
+                                        @error('nomor')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    @endif
+                                   
+                                    
+                                    
+                                </td>
+
+                                <td class="text-center">
+                                    @if ($editedcategoryIndex !== $category->id)
+                                    
+                                    {{ $category->status }}
+                                    
+                                    @else
+                                    <select class="form-select" aria-label="Default select example" wire:model="setcategories.{{$category->id}}.status" id="status">
+                                        <option>Pilih Status</option>
+                                        <option value="aktif">Aktif</option>
+                                        <option value="tidak aktif">Tidak Aktif</option>
+                                      </select>                             
+                                        @error('status')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

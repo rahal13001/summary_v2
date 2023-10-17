@@ -19,6 +19,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class Recycle extends Component
 {
     use WithPagination;
+    use LivewireAlert;
     protected $paginationTheme = 'bootstrap';
 
     protected $listeners = ['sendnotifTambah' => 'notif'];

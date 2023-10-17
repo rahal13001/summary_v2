@@ -23,15 +23,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $cek = Auth::user()->category;
-         
-        if(count($cek) > 0){
-      
-            return view('user.userpercategory');
-        }else{
-            
-            return redirect()->route('home');
-        }
+        return view('user.userpercategory');
     }
 
     /**

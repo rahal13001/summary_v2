@@ -238,7 +238,7 @@ class Recycle extends Component
             'timerProgressBar' => true,
            ]);
     }
-
+    //export excel
     public function eksporexcel(){
         
         // return (new ReportsExport($this->checked))->download('laporan.xlsx');

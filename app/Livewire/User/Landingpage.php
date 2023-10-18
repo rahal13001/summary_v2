@@ -156,7 +156,7 @@ class Landingpage extends Component
             ->whereYear('when', date('Y'))
             ->groupBy('user_id')
             ->orderBy('report_count', 'desc')
-            ->limit(10);
+            ->limit(5);
     }
 
     public function getYearlyLeaderBoardsProperty(){
@@ -170,7 +170,7 @@ class Landingpage extends Component
             ->whereMonth('when', date('m'))
             ->groupBy('user_id')
             ->orderBy('report_count', 'desc')
-            ->limit(10);
+            ->limit(5);
     }
 
     public function getMonthlyLeaderBoardsProperty(){

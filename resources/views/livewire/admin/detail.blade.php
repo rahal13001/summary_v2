@@ -396,7 +396,7 @@
                         <button class="btn btn-primary mr" wire:click=submit type="submit" wire:loading.attr="disabled" style="display: {{ $edit_toggle != true ? "none" : "" }}">Edit</button>
                     
                     @if (!$edit_toggle)
-                    <a href="{{ url('/') }}" wire:loading.attr="disabled" class="btn btn-warning ml-5 mr-1" wire:navigate>Kembali Ke Dashboard</a>
+                    <a href="{{ url('/') }}" wire:loading.attr="disabled" class="btn btn-warning ml-5 mr-1" >Kembali Ke Dashboard</a>
                     @endif
                         <a href="{{ url('pdf/'.$slug) }}" wire:loading.attr="disabled" class="btn btn-info ml-5" target="_blank">Cetak PDF</a>
                         
@@ -404,9 +404,9 @@
                         Data Sedang Di Proses .....
                     </div>
 
-                    <a href="{{ url('/reportdashboard') }}" wire:loading.attr="disabled" class="btn btn-dark ml-3" wire:navigate>Kembali Ke Rekap Laporan</a>
+                    <a href="{{ url('/reportdashboard') }}" wire:loading.attr="disabled" class="btn btn-dark ml-3" >Kembali Ke Rekap Laporan</a>
                     @can('Akses Admin')
-                    <a href="{{ url('/admin') }}" wire:loading.attr="disabled" class="btn btn-success ml-5" wire:navigate>Dashboard Admin</a>
+                    <a href="{{ url('/admin') }}" wire:loading.attr="disabled" class="btn btn-success ml-5" >Dashboard Admin</a>
                     @endcan
                     
                     </div>
@@ -415,7 +415,7 @@
                 @can('Akses Admin')
                     <div class="row">
                         <div class="text-center mt-5 mb-3">
-                            <a href="{{ url('/recycle') }}" class="btn btn-primary" wire:navigate>Kembali Ke Recycle</a>
+                            <a href="{{ url('/recycle') }}" class="btn btn-primary" >Kembali Ke Recycle</a>
                         </div>
                     </div>
                 @endcan

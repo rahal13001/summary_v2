@@ -112,7 +112,7 @@
               <td>{{ $data->where }}</td>
               <td>{{ $data->user->name }}</td>
               <td class="text-center">
-                <a class="btn btn-outline-primary" href="{{ route('report_detail', $data->slug) }}" wire:navigate><i class="bi bi-eye-fill"></i></i></a>
+                <a class="btn btn-outline-primary" href="{{ route('report_detail', $data->slug) }}" ><i class="bi bi-eye-fill"></i></i></a>
                 
                 @if (!$checked)                      
                 <a class="btn btn-outline-danger"

@@ -156,7 +156,7 @@ class Landingpage extends Component
             ->whereYear('when', date('Y'))
             ->groupBy('user_id')
             ->orderBy('report_count', 'desc')
-            ->limit(5);
+            ->limit(10);
     }
 
     public function getYearlyLeaderBoardsProperty(){
@@ -170,7 +170,7 @@ class Landingpage extends Component
             ->whereMonth('when', date('m'))
             ->groupBy('user_id')
             ->orderBy('report_count', 'desc')
-            ->limit(5);
+            ->limit(10);
     }
 
     public function getMonthlyLeaderBoardsProperty(){
@@ -200,7 +200,17 @@ class Landingpage extends Component
                     '#95a5a6', // Concrete
                     '#f39c12', // Orange
                     '#d35400', // Pumpkin
-                    '#c0392b'  // Pomegranate
+                    '#c0392b',  // Pomegranate
+                    '#D2691E', // Chocolate
+                    '#FF7F50', // Coral
+                    '#6495ED', // CornflowerBlue
+                    '#DC143C', // Crimson
+                    '#00FFFF', // Cyan
+                    '#00008B', // DarkBlue
+                    '#008B8B', // DarkCyan
+                    '#B8860B', // DarkGoldenRod
+                    '#A9A9A9', // DarkGray
+                    '#006400'  // DarkGreen
                 ];
                 
         $columnChartModel = (new ColumnChartModel())

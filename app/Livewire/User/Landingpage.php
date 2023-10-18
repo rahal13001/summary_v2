@@ -166,6 +166,7 @@ class Landingpage extends Component
     public function getMonthlyLeaderBoardsQueryProperty(){
         return Report::selectRaw('user_id, count(*) as report_count')
             ->with('user')
+            ->whereYear('when', date('Y'))
             ->whereMonth('when', date('m'))
             ->groupBy('user_id')
             ->orderBy('report_count', 'desc')

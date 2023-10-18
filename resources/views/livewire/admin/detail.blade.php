@@ -400,7 +400,7 @@
                         <button class="btn btn-primary mr" wire:click=submit type="submit" wire:loading.attr="disabled" style="display: {{ $edit_toggle != true ? "none" : "" }}">Edit</button>
                     
                     @if (!$edit_toggle)
-                    <a href="{{ url('/') }}" wire:loading.attr="disabled" class="btn btn-warning ml-5 mr-1" >Kembali Ke Dashboard</a>
+                    <a href="{{ url('/dashboard') }}" wire:loading.attr="disabled" class="btn btn-warning ml-5 mr-1" >Kembali Ke Dashboard</a>
                     @endif
                         <a href="{{ url('pdf/'.$slug) }}" wire:loading.attr="disabled" class="btn btn-info ml-5" target="_blank">Cetak PDF</a>
                         

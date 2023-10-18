@@ -176,7 +176,7 @@
               <div class="app-card-header p-3">
                 <div class="row justify-content-between align-items-center">
                   <div class="col-auto">
-                    <h4 class="app-card-title">Penulis Terbanyak Tahun ini</h4>
+                    <h4 class="app-card-title">Top Writter This Year !!!</h4>
                   </div>
                   <!--//col-->
               
@@ -219,7 +219,7 @@
             <div class="app-card-header p-3">
               <div class="row justify-content-between align-items-center">
                 <div class="col-auto">
-                  <h4 class="app-card-title">Penulis Terbanyak Bulan Ini</h4>
+                  <h4 class="app-card-title">Top Writter This Month !!!</h4>
                 </div>
                 <!--//col-->
                 <!--//col-->

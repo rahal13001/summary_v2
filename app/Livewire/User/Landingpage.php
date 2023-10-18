@@ -38,7 +38,10 @@ class Landingpage extends Component
     public function mount(){
         $this->summary_ku = Report::where('user_id', Auth::user()->id)->count();
         $this->summary_tahun_ini = Report::where('user_id', Auth::user()->id)->whereYear('when', date('Y'))->count();
-        $this->summary_bulan_ini = Report::where('user_id', Auth::user()->id)->whereYear('when', date('m'))->whereMonth('when', date('m'))->count();
+        $this->summary_bulan_ini = Report::where('user_id', Auth::user()->id)
+                                    ->whereYear('when', date('Y'))
+                                    ->whereMonth('when', date('m'))
+                                    ->count();
     }
 
     public function updatedIkuUser($value){

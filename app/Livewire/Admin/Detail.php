@@ -25,7 +25,7 @@ class Detail extends Component
     use LivewireAlert;
     
     public
-            $pengikut = [], $slug,
+            $pengikut = [], $slug, $iku,
             $how, $who, $what, $where, $when, $why, $user_id, $no_st,
             $tanggal_selesai, $penyelenggara, $dokumentasi1_upload, $dokumentasi2_upload, $dokumentasi3_upload,
             $lainnya_upload, $gender_wanita, $st_upload, $total_peserta, $kategori, $dasar_pelaksanaan,

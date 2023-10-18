@@ -7,15 +7,20 @@
         <div class="container">
     
     <h3><strong>Detail Data</strong></h3>
-           
+        @php
+            $ikutan = [];
+            foreach ($pengikutTerpilih as $orangikut) {
+                $ikutan[] = $orangikut->id;
+            }
+        @endphp
+
         @if ($deleted_at != null)
             <div class="alert alert-danger alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 Data ini telah dihapus !!! <i class="bi bi-emoji-frown"></i>
             </div>
         
-   
-            @elseif (Auth::user()->id == $user_id || in_array(Auth::user()->id, $pengikutTerpilih->pluck('user_id')->toArray()) || (Auth::user()->can(['Akses Admin', 'Akses Super Admin']) && $deleted_at == null))
+            @elseif (Auth::user()->id == $user_id || in_array(Auth::user()->id, $ikutan) || (Auth::user()->can(['Akses Admin', 'Akses Super Admin']) && $deleted_at == null))
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="edit_toggle" wire:model.live = 'edit_toggle'>
                     <label class="form-check-label" for="edit_toggle"><b>Edit</b></label>
@@ -70,9 +75,9 @@
               </div>
             
               <div class="form-group mt-3" wire:ignore>
-                <label for="kategori"><strong>Kategori</strong></label>
+                <label for="kategori"><strong>Pokja</strong></label>
                 <select name="kategori" id="kategori" class="form-control input-rounded select2" multiple>
-                     <option disabled>Pilih Kategori</option>
+                     <option disabled>Pilih Pokja</option>
                    @foreach ($categories as $category )
                       <option value="{{ $category->id }}"
                         @foreach ($kategoriTerpilih as $kateg)

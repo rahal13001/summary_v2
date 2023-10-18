@@ -40,7 +40,7 @@ class Detail extends Component
     public function mount ($report){
         $this->report_id = $report->id;
         $this->slug = $report->slug;
-        $this->pengikutTerpilih = $report->pengikut;
+        $this->pengikutTerpilih = $report->pengikutreport;
         $this->how = $report->how;
         $this->who = $report->who;
         $this->what = $report->what;

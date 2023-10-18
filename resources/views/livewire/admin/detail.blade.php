@@ -53,28 +53,21 @@
                 @enderror   
                                                
               </div>
-              
-              <div class="form-group mt-3" wire:ignore>
-                <label for="pengikut"><strong>Pengikut</strong></label>
-                <select name="pengikut" id="pengikut" class="form-control input-rounded select2" multiple>
-                     <option disabled>Isikan Nama Pengikut</option>
-                        @foreach ($users as $pemakai )
-                            <option value="{{ $pemakai->id }}"
-                                @isset($pengikutTerpilih)
-                                    @foreach ($pengikutTerpilih as $ikut)
-                                    {{ $pemakai->id == $ikut->user_id ? "selected" : "" }}
-                                    @endforeach     
-                                @endisset
-                                   
-                    >{{ $pemakai->name }}</option>
-                   @endforeach
-                   
-                   </select>                   
-                @error('pengikut')
-                   <div class="text-danger mt-2 d-block">{{ $message }}</div>
-                @enderror                                  
-              </div>
 
+              <div class="form-group mt-3" wire:ignore>
+                <label for="kategori"><strong>Kategori</strong></label>
+                <select name="pengikut" id="pengikut" class="form-control input-rounded select2" multiple>
+                     <option disabled>Pengikut</option>
+                   @foreach ($users as $pengikut )
+                      <option value="{{ $pengikut->id }}"
+                        @foreach ($pengikutTerpilih as $follow)
+                            {{ $pengikut->id == $follow->id ? "selected" : "" }}
+                        @endforeach  
+                        >{{ $pengikut->name }}</option>
+                   @endforeach
+                   </select>                   
+                   @error('pengikut') <span class="error" style="color: red">{{ $message }}</span> @enderror
+              </div>
             
               <div class="form-group mt-3" wire:ignore>
                 <label for="kategori"><strong>Kategori</strong></label>

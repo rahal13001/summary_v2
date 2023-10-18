@@ -15,7 +15,7 @@
             </div>
         
    
-            @elseif (Auth::user()->id == $user_id || (isset($pengikutTerpilih) && in_array(Auth::user()->id, $pengikutTerpilih->pluck('user_id')->toArray())) || (Auth::user()->can(['Akses Admin', 'Akses Super Admin']) && $deleted_at == null))
+            @elseif (Auth::user()->id == $user_id || in_array(Auth::user()->id, $pengikutTerpilih->pluck('user_id')->toArray()) || (Auth::user()->can(['Akses Admin', 'Akses Super Admin']) && $deleted_at == null))
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="edit_toggle" wire:model.live = 'edit_toggle'>
                     <label class="form-check-label" for="edit_toggle"><b>Edit</b></label>

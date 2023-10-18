@@ -41,6 +41,7 @@
 
 </head> 
 <body class="app">   
+  @livewireStyles
   {{-- @include('sweetalert::alert') --}}
 
             @yield('body')
@@ -70,7 +71,8 @@
     <script src="{{ asset('/assets/lama/js/lib/jquery.nanoscroller.min.js') }}"></script>
     <script src="{{ asset('/assets/lama/js/lib/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/assets/lama/js/scripts.js') }}"></script>
-
+    @livewireScripts
+ 
     @stack('select2')
     @stack('script')
 

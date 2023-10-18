@@ -50,7 +50,7 @@
                 @enderror   
                                                
               </div>
-    
+              
               <div class="form-group mt-3" wire:ignore>
                 <label for="pengikut"><strong>Pengikut</strong></label>
                 <select name="pengikut" id="pengikut" class="form-control input-rounded select2" multiple>

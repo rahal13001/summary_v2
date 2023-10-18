@@ -12,7 +12,7 @@ class Report_User extends Pivot
 
     protected $guarded = ['id', 'created_at'];
 
-    protected $table = 'followers';
+    protected $table = 'report_user';
 
     public function report(){
         return $this->belongsTo(Report::class);

@@ -2,7 +2,7 @@
 
 @section('content')
 <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-@livewireStyles
+
     <div class="py-12">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -16,20 +16,5 @@
         </div>
         
     </div>
-    @livewireScripts
+
 @endsection
-
-<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-<script>
-
-   window.addEventListener('swal:modal',function (e) {
-     Swal.fire(e.detail);
-   });
-
-   window.addEventListener('close-modal', event => {
-
-        // $('#studentModal').modal('hide');
-        $('#updateUserKategoriModal').modal('hide');
-        // $('#deleteStudentModal').modal('hide');
-    });
- </script>

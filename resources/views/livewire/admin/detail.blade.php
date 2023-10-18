@@ -60,9 +60,12 @@
                      <option disabled>Isikan Nama Pengikut</option>
                         @foreach ($users as $pemakai )
                             <option value="{{ $pemakai->id }}"
-                                @foreach ($pengikutTerpilih as $ikut)
+                                @isset($pengikutTerpilih)
+                                    @foreach ($pengikutTerpilih as $ikut)
                                     {{ $pemakai->id == $ikut->user_id ? "selected" : "" }}
-                                @endforeach          
+                                    @endforeach     
+                                @endisset
+                                   
                     >{{ $pemakai->name }}</option>
                    @endforeach
                    

@@ -1,4 +1,8 @@
 <div>
+    @section('css')
+        <script src={{ asset('ckeditor/ckeditor.js') }}></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    @endsection
     <div>
   
         <div class="container">
@@ -251,13 +255,13 @@
                     </div>
                 </div>
           
-            <div wire:ignore class="mt-3">
-                <label for="how"><strong>How</strong></label>
-                    <textarea wire:model.live="how"
-                        class="form-control"
-                        name="how"
-                        id="how">{{$how}}</textarea>
-                </div>
+                <div wire:ignore class="mt-3">
+                    <label for="how"><strong>How</strong></label>
+                        <textarea wire:model.live="how"
+                            class="form-control"
+                            name="how"
+                            id="how">{{Request::old('how')}}</textarea>
+                    </div>
                 <div class="row mt-3">
                     <div class="col-md-4">
                     

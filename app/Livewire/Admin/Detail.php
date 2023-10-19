@@ -152,8 +152,10 @@ class Detail extends Component
                 'who' => $this->who,
                 // 'dasar_pelaksanaan' => $this->dasar_pelaksanaan,
                 'total_peserta' => $this->total_peserta,
+                'how' => $this->how,
                 'gender_wanita' => $this->gender_wanita,
                 'penyelenggara' => $this->penyelenggara,
+                'gender_wanita' => $this->gender_wanita,
                 'tanggal_selesai' => $this->tanggal_selesai,
         ]);
 

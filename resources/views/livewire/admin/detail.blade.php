@@ -397,7 +397,7 @@
             @if ($deleted_at == null)
                 <div class="row">
                     <div class="text-center mt-5 mb-3" >
-                        <button class="btn btn-primary mr" wire:click=submit type="submit" wire:loading.attr="disabled" style="display: {{ $edit_toggle != true ? "none" : "" }}">Edit</button>
+                        <button class="btn btn-primary mr" wire:click=submit type="submit" wire:loading.attr="disabled" style="display: {{ $edit_toggle != true ? "none" : "" }}">Simpan Perubahan</button>
                     
                     @if (!$edit_toggle)
                     <a href="{{ url('/dashboard') }}" wire:loading.attr="disabled" class="btn btn-warning ml-5 mr-1" >Kembali Ke Dashboard</a>

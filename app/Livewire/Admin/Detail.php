@@ -94,6 +94,7 @@ class Detail extends Component
 
     public function submit()
     {   
+ 
         $this->validate([
             'what' => 'required|unique:reports,what,' . $this->report_id,
             'where' => 'required',
@@ -141,7 +142,7 @@ class Detail extends Component
 
         ]);
 
-
+       
         Report::whereKey($this->report_id)->update([
                 'user_id' => $this->user_id,
                 'no_st' => $this->no_st,

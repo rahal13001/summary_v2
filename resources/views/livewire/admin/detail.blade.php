@@ -454,16 +454,16 @@
         ];
     
         config.removeButtons = 'Flash';
-    };
+        };
   
-            try {
-            const editor = CKEDITOR.replace(document.querySelector('#how'));
-            editor.on('change', function(event){
-                this.set('how', event.editor.getData());
+        try {
+            const editor = CKEDITOR.replace('how');
+            editor.on('change', function(){
+                @this.set('how', this.getData());
             });
-                } catch (error) {
-                    console.error(error);
-                }
+        } catch (error) {
+            console.error(error);
+        }
         </script>
     @endpush
     

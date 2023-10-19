@@ -5,10 +5,12 @@ namespace App\Livewire\Superadmin;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission;
 // use Spatie\Permission\Models\Role;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Tambahpermission extends Component
 {
     public $name, $submit;
+    use LivewireAlert;
 
     public function submit()
     {
@@ -25,13 +27,15 @@ class Tambahpermission extends Component
             'guard_name' => 'web'
         ]);
 
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Berhasil',
-            'text' => 'Terimakasih Telah Menambahkan Kategori',
-            'timer' => 5000,
+        $this->alert('success', 'Permission Berhasil Ditambah', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
 
         $this->clearForm();
         $this->dispatch('updatepermission');

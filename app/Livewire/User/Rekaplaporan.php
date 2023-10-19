@@ -20,7 +20,7 @@ class Rekaplaporan extends Component
 
     protected $paginationTheme = 'bootstrap';
     public $paginate = 10;
-    public $orderby = "created_at";
+    public $orderby = "when";
     public $asc = "DESC";
     public $checked = [];
     public $cari = ""; 

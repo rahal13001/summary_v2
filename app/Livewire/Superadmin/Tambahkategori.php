@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\CategoryUser;
 use App\Models\User;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use function PHPUnit\Framework\isNull;
 
@@ -13,6 +14,7 @@ class Tambahkategori extends Component
 {
     public $nama, $taut, $user_id, $clearform;
     public $category_id = [];
+    use LivewireAlert;
    
   
     public function render()
@@ -48,13 +50,15 @@ class Tambahkategori extends Component
             }
         }
 
-            $this->dispatchBrowserEvent('swal:modal', [
-                'icon' => 'success',
-                'title' => 'Berhasil',
-                'text' => 'User dan Kategori Berhasil Tertaut',
-                'timer' => 5000,
-                'timerProgressBar' => true,
-            ]);
+        $this->alert('success', 'Kategori Berhasil Ditambah', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
+            'timerProgressBar' => true,
+           ]);
         
         $this->clearForm();
         $this->dispatch('updateUserKategori');

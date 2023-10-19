@@ -16,7 +16,7 @@
         {{-- Urutan --}}
         <div class="col-md-3 col-sm-3 d-flex">
           <select wire:model.live="orderby" name="orderby" id="orderby" class="form-control form-control-sm rounded-md shadow-sm">
-              <option selected value="id">Urutan Default</option>
+              <option selected value="created_at">Tanggal Buat</option>
               <option value="what">What</option>
               <option value="when">When</option>
               <option value="user_id">Penyusun</option>

@@ -4,9 +4,11 @@ namespace App\Livewire\Superadmin;
 
 use App\Models\User;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Ubahnama extends Component
 {
+    use LivewireAlert;
 
     public $name;
     public $user;
@@ -38,13 +40,15 @@ class Ubahnama extends Component
 
 
         $this->ubah = false;
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Edit Nama Berhasil',
-            'text' => '',
+        $this->alert('success', 'Profil Berhasil Diubah', [
+            'position' => 'center',
             'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function render()

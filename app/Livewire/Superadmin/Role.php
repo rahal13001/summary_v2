@@ -5,12 +5,13 @@ namespace App\Livewire\Superadmin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Permission\Models\Role as ModelRole;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Role extends Component
 {
 
     protected $listeners = ['updaterole' => 'render'];
-
+    use LivewireAlert;
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -43,13 +44,15 @@ class Role extends Component
         $this->selectAll=false;
         $this->selectPage=false;
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
 
@@ -59,13 +62,15 @@ class Role extends Component
 
         $this->checked = array_diff($this->checked, [$role_id]);
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function render()

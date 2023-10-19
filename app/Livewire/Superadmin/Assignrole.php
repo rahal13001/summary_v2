@@ -6,12 +6,13 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Assignrole extends Component
 {
 
   
-
+    use LivewireAlert;
 
     protected $listeners = ['updateUserKategori' => 'render'];
 
@@ -48,13 +49,15 @@ class Assignrole extends Component
         $this->selectAll=false;
         $this->selectPage=false;
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
 
@@ -64,13 +67,15 @@ class Assignrole extends Component
 
         $this->checked = array_diff($this->checked, [$role_id]);
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function render()

@@ -5,11 +5,12 @@ namespace App\Livewire\Superadmin;
 use Livewire\Component;
 use Spatie\Permission\Models\Permission as ModelPermission;
 use Livewire\WithPagination;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Permission extends Component
 {
 
-
+    use LivewireAlert;
     protected $listeners = ['updatepermission' => 'render'];
 
 
@@ -44,13 +45,15 @@ class Permission extends Component
         $this->selectAll=false;
         $this->selectPage=false;
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
 
@@ -60,13 +63,15 @@ class Permission extends Component
 
         $this->checked = array_diff($this->checked, [$permission_id]);
         
-        $this->dispatchBrowserEvent('swal:modal', [
-            'icon' => 'success',
-            'title' => 'Data Berhasil Terhapus',
-            'text' => '',
-            'timer' => 5000,
+        $this->alert('success', 'Hapus Data Berhasil', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
             'timerProgressBar' => true,
-        ]);
+           ]);
     }
 
     public function render()

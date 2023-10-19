@@ -5,13 +5,14 @@ namespace App\Livewire\Superadmin;
 use App\Models\User;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Tambahuserrole extends Component
 {
 
     public $nama, $taut, $user_idrole, $clearform;
     public $role_id = [];
-   
+    use LivewireAlert;
   
     public function render()
     {
@@ -38,13 +39,15 @@ class Tambahuserrole extends Component
 
         $user->assignRole($this->role_id);
 
-            $this->dispatchBrowserEvent('swal:modal', [
-                'icon' => 'success',
-                'title' => 'Berhasil',
-                'text' => 'User dan Kategori Berhasil Tertaut',
-                'timer' => 5000,
-                'timerProgressBar' => true,
-            ]);
+        $this->alert('success', 'User Berhasil Diberi Role', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'showConfirmButton' => true,
+            'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
+            'timerProgressBar' => true,
+           ]);
         
         $this->clearForm();
         $this->dispatch('updateUserKategori');

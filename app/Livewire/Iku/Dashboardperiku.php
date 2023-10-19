@@ -16,7 +16,7 @@ class Dashboardperiku extends Component
     protected $listeners = ['sendnotifTambah' => 'notif'];
 
     public $paginate = 10;
-    public $orderby = "created_at";
+    public $orderby = "when";
     public $asc = "DESC";
     public $checked = [];
     public $cari = "";

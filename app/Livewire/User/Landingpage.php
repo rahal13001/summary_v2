@@ -14,9 +14,11 @@ use Asantibanez\LivewireCharts\Models\ColumnChartModel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Landingpage extends Component
 {
+    use LivewireAlert;
     public $pokja, $ketentuanpokja;
     public $iku;
     public $waktuiku = 1;
@@ -26,14 +28,43 @@ class Landingpage extends Component
     public $showDataLabels = false;
     public $categoryUser;
     public $summary_ku, $summary_tahun_ini, $summary_bulan_ini;
+
  
 
-    // #[On('onColumnClick')]
+    #[On('onColumnClickIKU')]
 
-    // public function handleOnColumnClick($column)
-    // {
-    //     dd('huasu');
-    // }
+
+    public function handleOnColumnClickIKU($column)
+    {
+        // dd($column);
+        $this->alert('info', 'Informasi Grafik IKU', [
+            'position' => 'center',
+            'timer' => 10000,
+            'toast' => true,
+            'showConfirmButton' => true,
+            // 'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
+            'timerProgressBar' => false,
+            'text' => 'IKU '.$column['title'].' '.$column['extras'].' Jumlah '.$column['value']
+        ]);
+    }
+    #[On('onColumnClickPokja')]
+    public function handleOnColumnClickPokja($column)
+    {
+        // dd($column);
+        $this->alert('info', 'Informasi Grafik IKU', [
+            'position' => 'center',
+            'timer' => 10000,
+            'toast' => true,
+            'showConfirmButton' => true,
+            // 'onConfirmed' => '',
+            'confirmButtonText' => 'Ok',
+            'timerProgressBar' => false,
+            'text' => 'Pokja '.$column['title'].' '.$column['extras'].' Jumlah '.$column['value']
+        ]);
+    }
+
+ 
 
     public function mount(){
         $this->summary_ku = Report::where('user_id', Auth::user()->id)->count();
@@ -217,22 +248,22 @@ class Landingpage extends Component
                 ];
                 
         $columnChartModel = (new ColumnChartModel())
-                            ->setTitle('Jumlah');
-                            // ->withOnColumnClickEventName('onColumnClick');
+                            ->setTitle('Jumlah')
+                            ->withOnColumnClickEventName('onColumnClickIKU');
                        
                             foreach ($this->indicators as $indexiku => $indicator) {
                                 $color = $colors[$indexiku % count($colors)]; // untuk setup warna
-                                $columnChartModel->addColumn($indicator->nomor, (int) $indicator->report_count, $color); // cast report_count to int
+                                $columnChartModel->addColumn($indicator->nomor, (int) $indicator->report_count, $color, $indicator->nama); // cast report_count to int
                             }
                             
 
         $pokjacolumnChartModel = (new ColumnChartModel())
-                            ->setTitle('Jumlah');
-                            // ->withOnColumnClickEventName('onColumnClick');
+                            ->setTitle('Jumlah')
+                            ->withOnColumnClickEventName('onColumnClickPokja');
                        
                             foreach ($this->categories as $indexpokja => $category) {
                                 $color = $colors[$indexpokja % count($colors)]; // untuk setup warna
-                                $pokjacolumnChartModel->addColumn($category->nomor, (int) $category->reports_count, $color); // cast report_count to int
+                                $pokjacolumnChartModel->addColumn($category->nomor, (int) $category->reports_count, $color, $category->nama); // cast report_count to int
                             }
                             
         
